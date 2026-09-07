@@ -1,44 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sri Maruthi Kalaikoodam | Drawing & Art Academy</title>
 
 <meta name="description"
-content="Sri Maruthi Kalaikoodam — Drawing, Sketching, Art and Painting classes for children, beginners and aspiring artists.">
+content="Sri Maruthi Kalaikoodam — Premium drawing, sketching, art and painting classes for children, beginners and aspiring artists.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap" rel="stylesheet">
 
-
 <style>
 
-/* =====================================================
-   ROOT
-===================================================== */
-
-:root{
-    --bg:#faf8f3;
-    --cream:#f0ebe2;
-    --paper:#fffdf9;
-    --dark:#171614;
-    --dark2:#24221f;
-    --muted:#77736b;
-    --gold:#b4945d;
-    --gold-light:#d6bf94;
-    --line:#ddd7cc;
-    --white:#ffffff;
-    --green:#25D366;
-    --red:#b84a4a;
-    --approved:#557c5c;
-    --pending:#a77a37;
-}
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -52,8 +32,8 @@ html{
 
 body{
     font-family:"DM Sans",sans-serif;
-    background:var(--bg);
-    color:var(--dark);
+    background:#faf8f3;
+    color:#171614;
     overflow-x:hidden;
 }
 
@@ -62,10 +42,22 @@ a{
     color:inherit;
 }
 
-button,
-input,
-textarea{
-    font-family:inherit;
+img{
+    width:100%;
+    display:block;
+}
+
+:root{
+    --bg:#faf8f3;
+    --cream:#f1ece3;
+    --paper:#fffdf9;
+    --dark:#171614;
+    --dark2:#24221f;
+    --muted:#77736b;
+    --gold:#b4945d;
+    --gold-light:#d3bb8d;
+    --line:#ddd7cc;
+    --white:#ffffff;
 }
 
 .container{
@@ -74,19 +66,19 @@ textarea{
 }
 
 
-/* =====================================================
-   LOADER
-===================================================== */
+/* =========================================================
+   PRELOADER
+========================================================= */
 
 .loader{
     position:fixed;
     inset:0;
     background:var(--dark);
+    z-index:9999;
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:9999;
-    transition:.6s;
+    transition:.7s ease;
 }
 
 .loader.hide{
@@ -94,11 +86,14 @@ textarea{
     visibility:hidden;
 }
 
-.loader-logo{
-    color:white;
-    font-family:"Playfair Display",serif;
-    font-size:30px;
+.loader-content{
     text-align:center;
+    color:white;
+}
+
+.loader-logo{
+    font-family:"Playfair Display",serif;
+    font-size:35px;
 }
 
 .loader-logo span{
@@ -109,7 +104,7 @@ textarea{
 .loader-line{
     width:120px;
     height:1px;
-    background:#444;
+    background:#555;
     margin:20px auto;
     overflow:hidden;
 }
@@ -120,18 +115,18 @@ textarea{
     width:50%;
     height:100%;
     background:var(--gold-light);
-    animation:loading 1.2s infinite;
+    animation:load 1.2s infinite;
 }
 
-@keyframes loading{
+@keyframes load{
     from{transform:translateX(-100%)}
     to{transform:translateX(300%)}
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVIGATION
-===================================================== */
+========================================================= */
 
 .nav{
     position:fixed;
@@ -140,11 +135,11 @@ textarea{
     width:100%;
     z-index:1000;
     padding:25px 0;
-    transition:.4s;
+    transition:.4s ease;
 }
 
 .nav.scrolled{
-    background:rgba(250,248,243,.96);
+    background:rgba(250,248,243,.94);
     backdrop-filter:blur(18px);
     border-bottom:1px solid var(--line);
     padding:15px 0;
@@ -152,14 +147,15 @@ textarea{
 
 .nav-inner{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
     font-family:"Playfair Display",serif;
-    font-size:25px;
+    font-size:26px;
     font-weight:600;
+    letter-spacing:-.7px;
 }
 
 .logo span{
@@ -170,7 +166,7 @@ textarea{
 .nav-links{
     display:flex;
     align-items:center;
-    gap:30px;
+    gap:32px;
     font-size:13px;
 }
 
@@ -181,11 +177,11 @@ textarea{
 .nav-links a:not(.nav-cta):after{
     content:"";
     position:absolute;
-    bottom:-7px;
-    left:0;
     width:0;
     height:1px;
     background:var(--gold);
+    left:0;
+    bottom:-7px;
     transition:.3s;
 }
 
@@ -194,9 +190,9 @@ textarea{
 }
 
 .nav-cta{
+    padding:11px 21px;
     background:var(--dark);
     color:white;
-    padding:12px 20px;
     border-radius:30px;
     transition:.3s;
 }
@@ -206,40 +202,17 @@ textarea{
     transform:translateY(-2px);
 }
 
-.menu-btn{
-    display:none;
-    width:42px;
-    height:42px;
-    border:1px solid var(--line);
-    background:transparent;
-    cursor:pointer;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:5px;
-}
 
-.menu-btn span{
-    width:19px;
-    height:1px;
-    background:var(--dark);
-}
-
-.mobile-menu{
-    display:none;
-}
-
-
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
     min-height:100vh;
     padding:150px 0 100px;
+    position:relative;
     display:flex;
     align-items:center;
-    position:relative;
     overflow:hidden;
 }
 
@@ -252,6 +225,18 @@ textarea{
     background:#eee5d7;
     right:-280px;
     top:80px;
+    z-index:-2;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border:1px solid #d8cbb7;
+    border-radius:50%;
+    right:120px;
+    bottom:-100px;
     z-index:-1;
 }
 
@@ -267,10 +252,10 @@ textarea{
     align-items:center;
     gap:12px;
     color:var(--muted);
+    font-size:11px;
     text-transform:uppercase;
     letter-spacing:2.5px;
-    font-size:11px;
-    margin-bottom:28px;
+    margin-bottom:27px;
 }
 
 .eyebrow:before{
@@ -294,11 +279,11 @@ textarea{
 }
 
 .hero-description{
+    max-width:530px;
+    margin:32px 0;
     color:var(--muted);
     font-size:17px;
     line-height:1.8;
-    max-width:530px;
-    margin:32px 0;
 }
 
 .hero-buttons{
@@ -308,16 +293,14 @@ textarea{
 }
 
 .btn{
+    padding:15px 25px;
     display:inline-flex;
     align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:15px 25px;
-    border-radius:3px;
+    gap:12px;
     font-size:13px;
     font-weight:600;
-    transition:.35s;
-    cursor:pointer;
+    border-radius:3px;
+    transition:.35s ease;
 }
 
 .btn-dark{
@@ -339,12 +322,16 @@ textarea{
     transform:translateY(-3px);
 }
 
-.hero-image-wrap{
+.hero-visual{
     position:relative;
 }
 
+.hero-image-wrap{
+    position:relative;
+    z-index:1;
+}
+
 .hero-image{
-    width:100%;
     height:650px;
     object-fit:cover;
     filter:saturate(.78);
@@ -382,9 +369,34 @@ textarea{
 }
 
 
-/* =====================================================
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+.scroll-indicator:after{
+    content:"";
+    display:block;
+    width:1px;
+    height:35px;
+    background:var(--gold);
+    margin:10px auto 0;
+}
+
+
+/* =========================================================
    ABOUT
-===================================================== */
+========================================================= */
 
 .about{
     padding:150px 0;
@@ -432,16 +444,16 @@ textarea{
 
 .about-signature{
     margin-top:35px;
-    color:var(--gold);
     font-family:"Playfair Display",serif;
     font-size:24px;
     font-style:italic;
+    color:var(--gold);
 }
 
 
-/* =====================================================
+/* =========================================================
    STATS
-===================================================== */
+========================================================= */
 
 .stats{
     background:var(--dark);
@@ -456,8 +468,8 @@ textarea{
 
 .stat{
     text-align:center;
-    border-right:1px solid #3b3935;
     padding:10px 20px;
+    border-right:1px solid #3a3834;
 }
 
 .stat:last-child{
@@ -465,23 +477,23 @@ textarea{
 }
 
 .stat-number{
-    color:var(--gold-light);
     font-family:"Playfair Display",serif;
     font-size:52px;
+    color:var(--gold-light);
 }
 
 .stat-label{
+    margin-top:7px;
     color:#aaa69e;
     font-size:11px;
     letter-spacing:1.5px;
     text-transform:uppercase;
-    margin-top:7px;
 }
 
 
-/* =====================================================
+/* =========================================================
    PROGRAMS
-===================================================== */
+========================================================= */
 
 .programs{
     padding:150px 0;
@@ -497,15 +509,15 @@ textarea{
 .section-top h2{
     font-family:"Playfair Display",serif;
     font-size:clamp(45px,5vw,64px);
-    line-height:1;
     font-weight:500;
+    line-height:1;
     margin-top:16px;
 }
 
 .section-top p{
-    max-width:350px;
     color:var(--muted);
     line-height:1.7;
+    max-width:350px;
 }
 
 .program-grid{
@@ -517,20 +529,21 @@ textarea{
 .program{
     background:var(--paper);
     border:1px solid var(--line);
-    min-height:350px;
     padding:38px 32px;
+    min-height:350px;
     position:relative;
-    transition:.4s;
+    transition:.4s ease;
 }
 
 .program:hover{
     transform:translateY(-8px);
     box-shadow:0 25px 60px rgba(0,0,0,.08);
+    border-color:#c8b99f;
 }
 
 .program-number{
-    color:var(--gold);
     font-size:11px;
+    color:var(--gold);
     letter-spacing:2px;
     margin-bottom:60px;
 }
@@ -554,6 +567,7 @@ textarea{
     left:32px;
     font-size:12px;
     font-weight:700;
+    transition:.3s;
 }
 
 .program-link:hover{
@@ -561,9 +575,9 @@ textarea{
 }
 
 
-/* =====================================================
+/* =========================================================
    GALLERY
-===================================================== */
+========================================================= */
 
 .gallery{
     background:var(--cream);
@@ -601,13 +615,15 @@ textarea{
 
 .gallery-item{
     overflow:hidden;
+    position:relative;
+    background:#ddd;
 }
 
 .gallery-item img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.8s;
+    transition:transform .8s ease;
 }
 
 .gallery-item:hover img{
@@ -627,9 +643,9 @@ textarea{
 }
 
 
-/* =====================================================
+/* =========================================================
    METHOD
-===================================================== */
+========================================================= */
 
 .method{
     padding:150px 0;
@@ -643,7 +659,6 @@ textarea{
 }
 
 .method-image{
-    width:100%;
     height:600px;
     object-fit:cover;
 }
@@ -664,8 +679,8 @@ textarea{
     display:grid;
     grid-template-columns:55px 1fr;
     gap:20px;
-    padding:25px 0;
     border-top:1px solid var(--line);
+    padding:25px 0;
 }
 
 .step-number{
@@ -688,419 +703,9 @@ textarea{
 }
 
 
-/* =====================================================
-   PARENT FEEDBACK
-===================================================== */
-
-.feedback-section{
-    background:#f5f0e7;
-    padding:150px 0;
-}
-
-.feedback-header{
-    text-align:center;
-    max-width:700px;
-    margin:0 auto 60px;
-}
-
-.feedback-header h2{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(45px,5vw,65px);
-    font-weight:500;
-    margin-top:15px;
-}
-
-.feedback-header p{
-    color:var(--muted);
-    line-height:1.8;
-    margin-top:15px;
-}
-
-.feedback-layout{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:start;
-}
-
-
-/* FORM */
-
-.feedback-form{
-    background:var(--paper);
-    padding:40px;
-    border:1px solid var(--line);
-}
-
-.feedback-form h3{
-    font-family:"Playfair Display",serif;
-    font-size:30px;
-    font-weight:500;
-    margin-bottom:25px;
-}
-
-.form-group{
-    margin-bottom:20px;
-}
-
-.form-group label{
-    display:block;
-    font-size:11px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:8px;
-}
-
-.form-group input,
-.form-group textarea{
-    width:100%;
-    border:1px solid var(--line);
-    background:white;
-    padding:14px;
-    outline:none;
-    font-size:14px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-    border-color:var(--gold);
-}
-
-.form-group textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-
-/* STARS */
-
-.rating{
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:flex-end;
-    gap:5px;
-}
-
-.rating input{
-    display:none;
-}
-
-.rating label{
-    font-size:27px;
-    color:#ccc;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.rating label:hover,
-.rating label:hover ~ label,
-.rating input:checked ~ label{
-    color:var(--gold);
-}
-
-.submit-feedback{
-    width:100%;
-    border:none;
-}
-
-.feedback-note{
-    color:var(--muted);
-    font-size:11px;
-    line-height:1.6;
-    margin-top:15px;
-}
-
-
-/* FEEDBACK TITLE */
-
-.feedback-title-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.feedback-display h3{
-    font-family:"Playfair Display",serif;
-    font-size:30px;
-    font-weight:500;
-}
-
-
-/* ADMIN BUTTON */
-
-.admin-btn{
-    border:1px solid var(--line);
-    background:transparent;
-    padding:9px 15px;
-    font-size:10px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    cursor:pointer;
-    color:var(--muted);
-}
-
-.admin-btn:hover{
-    border-color:var(--gold);
-    color:var(--gold);
-}
-
-
-/* =====================================================
-   ADMIN LOGIN
-===================================================== */
-
-.admin-login{
-    display:none;
-    background:var(--dark);
-    color:white;
-    padding:25px;
-    margin-bottom:20px;
-}
-
-.admin-login.active{
-    display:block;
-}
-
-.admin-login h4{
-    font-family:"Playfair Display",serif;
-    font-size:23px;
-    margin-bottom:15px;
-}
-
-.admin-login-form{
-    display:flex;
-    gap:10px;
-}
-
-.admin-login-form input{
-    flex:1;
-    padding:12px;
-    border:none;
-    outline:none;
-}
-
-.admin-login-form button{
-    padding:12px 20px;
-    border:none;
-    background:var(--gold);
-    color:white;
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   ADMIN PANEL
-===================================================== */
-
-.admin-panel{
-    display:none;
-    background:white;
-    border:1px solid var(--line);
-    padding:20px;
-    margin-bottom:20px;
-}
-
-.admin-panel.active{
-    display:block;
-}
-
-.admin-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:18px;
-}
-
-.admin-top strong{
-    font-family:"Playfair Display",serif;
-    font-size:21px;
-}
-
-.logout-btn{
-    border:1px solid var(--line);
-    background:white;
-    padding:7px 12px;
-    font-size:10px;
-    cursor:pointer;
-}
-
-.admin-stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-bottom:20px;
-}
-
-.admin-stat{
-    background:#f7f4ee;
-    padding:15px;
-    text-align:center;
-}
-
-.admin-stat strong{
-    display:block;
-    font-size:22px;
-    color:var(--gold);
-}
-
-.admin-stat span{
-    font-size:10px;
-    text-transform:uppercase;
-    color:var(--muted);
-    letter-spacing:1px;
-}
-
-
-/* ADMIN FEEDBACK */
-
-.admin-feedback-list{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-
-.admin-feedback-card{
-    border:1px solid var(--line);
-    padding:17px;
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:15px;
-}
-
-.admin-feedback-info strong{
-    font-size:14px;
-}
-
-.admin-feedback-info p{
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.6;
-    margin:7px 0;
-}
-
-.admin-rating{
-    color:var(--gold);
-    letter-spacing:2px;
-    font-size:13px;
-}
-
-.status{
-    display:inline-block;
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    padding:5px 9px;
-    margin-top:5px;
-}
-
-.status.pending{
-    background:#f5ead5;
-    color:var(--pending);
-}
-
-.status.approved{
-    background:#e4eee5;
-    color:var(--approved);
-}
-
-.admin-actions{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    flex-wrap:wrap;
-}
-
-.approve-btn{
-    border:none;
-    background:var(--approved);
-    color:white;
-    padding:9px 13px;
-    cursor:pointer;
-    font-size:10px;
-}
-
-.reject-btn{
-    border:1px solid var(--line);
-    background:white;
-    color:var(--muted);
-    padding:9px 13px;
-    cursor:pointer;
-    font-size:10px;
-}
-
-.delete-btn{
-    border:none;
-    background:var(--red);
-    color:white;
-    padding:9px 13px;
-    cursor:pointer;
-    font-size:10px;
-}
-
-.approve-btn:hover,
-.delete-btn:hover{
-    opacity:.85;
-}
-
-.admin-empty{
-    color:var(--muted);
-    text-align:center;
-    padding:20px;
-    font-size:13px;
-}
-
-
-/* =====================================================
-   PUBLIC FEEDBACK
-===================================================== */
-
-.feedback-list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
-.feedback-card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    padding:27px;
-}
-
-.feedback-stars{
-    color:var(--gold);
-    letter-spacing:2px;
-    font-size:15px;
-    margin-bottom:13px;
-}
-
-.feedback-text{
-    font-family:"Playfair Display",serif;
-    font-size:19px;
-    font-style:italic;
-    line-height:1.5;
-}
-
-.feedback-name{
-    margin-top:17px;
-    font-size:12px;
-    font-weight:700;
-    color:var(--muted);
-}
-
-.feedback-empty{
-    border:1px dashed #cfc6b8;
-    padding:35px;
-    text-align:center;
-    color:var(--muted);
-    line-height:1.7;
-}
-
-
-/* =====================================================
+/* =========================================================
    QUOTE
-===================================================== */
+========================================================= */
 
 .quote-section{
     background:var(--dark2);
@@ -1110,8 +715,8 @@ textarea{
 }
 
 .quote-mark{
-    color:var(--gold);
     font-family:"Playfair Display",serif;
+    color:var(--gold);
     font-size:85px;
     line-height:.4;
 }
@@ -1121,8 +726,8 @@ blockquote{
     margin:45px auto 35px;
     font-family:"Playfair Display",serif;
     font-size:clamp(30px,4vw,52px);
-    line-height:1.2;
     font-style:italic;
+    line-height:1.2;
 }
 
 .quote-author{
@@ -1132,13 +737,13 @@ blockquote{
 }
 
 
-/* =====================================================
+/* =========================================================
    CTA
-===================================================== */
+========================================================= */
 
 .cta{
-    background:var(--cream);
     padding:150px 0;
+    background:var(--cream);
     text-align:center;
 }
 
@@ -1155,16 +760,16 @@ blockquote{
 }
 
 .cta p{
+    color:var(--muted);
     max-width:520px;
     margin:28px auto 35px;
-    color:var(--muted);
     line-height:1.8;
 }
 
 
-/* =====================================================
-   CONTACT
-===================================================== */
+/* =========================================================
+   CONTACT STRIP
+========================================================= */
 
 .contact-strip{
     background:var(--gold);
@@ -1174,8 +779,8 @@ blockquote{
 
 .contact-inner{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     gap:30px;
 }
 
@@ -1187,7 +792,6 @@ blockquote{
 
 .contact-inner span{
     font-size:14px;
-    margin-left:10px;
 }
 
 .contact-btn{
@@ -1197,12 +801,17 @@ blockquote{
     border-radius:30px;
     font-size:13px;
     font-weight:700;
+    transition:.3s;
+}
+
+.contact-btn:hover{
+    transform:translateY(-3px);
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer{
     background:var(--dark);
@@ -1228,16 +837,16 @@ footer{
 }
 
 .footer-description{
-    max-width:380px;
-    margin-top:17px;
     color:#92908b;
+    max-width:380px;
     line-height:1.7;
+    margin-top:17px;
     font-size:14px;
 }
 
 .footer-title{
-    color:#aaa;
     font-size:11px;
+    color:#aaa;
     letter-spacing:2px;
     text-transform:uppercase;
     margin-bottom:20px;
@@ -1247,8 +856,12 @@ footer{
     display:flex;
     flex-direction:column;
     gap:13px;
-    color:#ddd;
     font-size:14px;
+    color:#ddd;
+}
+
+.footer-links a{
+    transition:.3s;
 }
 
 .footer-links a:hover{
@@ -1256,18 +869,18 @@ footer{
 }
 
 .footer-bottom{
-    display:flex;
-    justify-content:space-between;
     border-top:1px solid #333;
     padding-top:25px;
+    display:flex;
+    justify-content:space-between;
     color:#777;
     font-size:11px;
 }
 
 
-/* =====================================================
+/* =========================================================
    WHATSAPP
-===================================================== */
+========================================================= */
 
 .whatsapp{
     position:fixed;
@@ -1276,7 +889,7 @@ footer{
     width:62px;
     height:62px;
     border-radius:50%;
-    background:var(--green);
+    background:#25D366;
     color:white;
     display:flex;
     align-items:center;
@@ -1296,9 +909,53 @@ footer{
 }
 
 
-/* =====================================================
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.menu-btn{
+    display:none;
+    width:42px;
+    height:42px;
+    border:1px solid var(--line);
+    background:transparent;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+}
+
+.menu-btn span{
+    width:19px;
+    height:1px;
+    background:var(--dark);
+}
+
+.mobile-menu{
+    display:none;
+}
+
+
+/* =========================================================
    RESPONSIVE
-===================================================== */
+========================================================= */
 
 @media(max-width:900px){
 
@@ -1310,22 +967,30 @@ footer{
         display:flex;
     }
 
-    .mobile-menu.active{
-        display:block;
+    .mobile-menu{
         position:fixed;
         top:75px;
         left:0;
         width:100%;
         background:var(--paper);
-        z-index:999;
-        padding:20px 6%;
         border-bottom:1px solid var(--line);
+        padding:25px;
+        z-index:999;
+    }
+
+    .mobile-menu.active{
+        display:block;
     }
 
     .mobile-menu a{
         display:block;
         padding:15px 0;
         border-bottom:1px solid var(--line);
+        font-size:14px;
+    }
+
+    .hero{
+        padding-top:125px;
     }
 
     .hero-grid{
@@ -1341,6 +1006,10 @@ footer{
         left:15px;
     }
 
+    .about{
+        padding:110px 0;
+    }
+
     .about-grid{
         grid-template-columns:1fr;
         gap:30px;
@@ -1353,6 +1022,14 @@ footer{
 
     .stat:nth-child(2){
         border:none;
+    }
+
+    .programs,
+    .gallery,
+    .method,
+    .quote-section,
+    .cta{
+        padding:110px 0;
     }
 
     .section-top{
@@ -1386,10 +1063,6 @@ footer{
         height:500px;
     }
 
-    .feedback-layout{
-        grid-template-columns:1fr;
-    }
-
     .footer-grid{
         grid-template-columns:1fr;
     }
@@ -1403,13 +1076,8 @@ footer{
         flex-direction:column;
         gap:10px;
     }
-
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media(max-width:500px){
 
@@ -1418,11 +1086,11 @@ footer{
     }
 
     .logo{
-        font-size:20px;
+        font-size:21px;
     }
 
     .hero{
-        padding-top:125px;
+        padding-bottom:80px;
     }
 
     .hero h1{
@@ -1440,6 +1108,7 @@ footer{
 
     .btn{
         width:100%;
+        justify-content:center;
     }
 
     .hero-image{
@@ -1453,6 +1122,10 @@ footer{
     .hero-badge{
         left:8px;
         bottom:20px;
+    }
+
+    .scroll-indicator{
+        display:none;
     }
 
     .stats-grid{
@@ -1469,15 +1142,6 @@ footer{
         border-bottom:none;
     }
 
-    .programs,
-    .gallery,
-    .method,
-    .feedback-section,
-    .quote-section,
-    .cta{
-        padding:100px 0;
-    }
-
     .gallery-tall,
     .gallery-medium,
     .gallery-small{
@@ -1488,29 +1152,8 @@ footer{
         height:420px;
     }
 
-    .feedback-form{
-        padding:25px;
-    }
-
-    .feedback-text{
-        font-size:17px;
-    }
-
-    .contact-inner span{
-        display:block;
-        margin:7px 0 0;
-    }
-
-    .admin-login-form{
-        flex-direction:column;
-    }
-
-    .admin-feedback-card{
-        grid-template-columns:1fr;
-    }
-
-    .admin-stats{
-        grid-template-columns:1fr 1fr 1fr;
+    .contact-inner strong{
+        font-size:23px;
     }
 
     .whatsapp{
@@ -1519,39 +1162,37 @@ footer{
         right:18px;
         bottom:18px;
     }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      LOADER
-===================================================== -->
+========================================================= -->
 
 <div class="loader" id="loader">
 
-<div>
+    <div class="loader-content">
 
-<div class="loader-logo">
-Sri Maruthi Kalaikoodam<span>.</span>
+        <div class="loader-logo">
+            Sri Maruthi Kalaikoodam<span>.</span>
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
 </div>
 
-<div class="loader-line"></div>
 
-</div>
-
-</div>
-
-
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
 <header class="nav" id="navbar">
 
@@ -1567,7 +1208,6 @@ Sri Maruthi Kalaikoodam<span>.</span>
 <a href="#programs">Programs</a>
 <a href="#gallery">Gallery</a>
 <a href="#method">Method</a>
-<a href="#feedback">Parents</a>
 
 <a
 class="nav-cta"
@@ -1602,7 +1242,6 @@ Enquire Now
 <a href="#programs">Programs</a>
 <a href="#gallery">Gallery</a>
 <a href="#method">Method</a>
-<a href="#feedback">Parent Feedback</a>
 
 <a
 target="_blank"
@@ -1615,15 +1254,18 @@ Enquire Now →
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
+
+<main>
 
 <section class="hero">
 
 <div class="container hero-grid">
 
-<div>
+
+<div class="reveal">
 
 <div class="eyebrow">
 Drawing & Creative Arts Academy
@@ -1654,13 +1296,17 @@ Join a Class →
 </a>
 
 <a href="#programs" class="btn btn-outline">
+
 Explore Programs
+
 </a>
 
 </div>
 
 </div>
 
+
+<div class="hero-visual reveal">
 
 <div class="hero-image-wrap">
 
@@ -1683,12 +1329,20 @@ alt="Artist drawing">
 
 </div>
 
+
+</div>
+
+
+<div class="scroll-indicator">
+Scroll to explore
+</div>
+
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      ABOUT
-===================================================== -->
+========================================================= -->
 
 <section class="about" id="about">
 
@@ -1703,7 +1357,7 @@ Our Philosophy
 </div>
 
 
-<div>
+<div class="reveal">
 
 <h2 class="about-title">
 
@@ -1713,6 +1367,7 @@ Art is not about being perfect.
 It's about learning to <em>see.</em>
 
 </h2>
+
 
 <div class="about-copy">
 
@@ -1730,6 +1385,7 @@ and inspiring environment.
 
 </div>
 
+
 <div class="about-signature">
 Creativity begins with one line.
 </div>
@@ -1741,17 +1397,19 @@ Creativity begins with one line.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      STATS
-===================================================== -->
+========================================================= -->
 
 <section class="stats">
 
 <div class="container stats-grid">
 
-<div class="stat">
+<div class="stat reveal">
 
-<div class="stat-number">500+</div>
+<div class="stat-number">
+500+
+</div>
 
 <div class="stat-label">
 Students Guided
@@ -1759,9 +1417,12 @@ Students Guided
 
 </div>
 
-<div class="stat">
 
-<div class="stat-number">8+</div>
+<div class="stat reveal">
+
+<div class="stat-number">
+8+
+</div>
 
 <div class="stat-label">
 Years Experience
@@ -1769,9 +1430,12 @@ Years Experience
 
 </div>
 
-<div class="stat">
 
-<div class="stat-number">20+</div>
+<div class="stat reveal">
+
+<div class="stat-number">
+20+
+</div>
 
 <div class="stat-label">
 Creative Projects
@@ -1779,9 +1443,12 @@ Creative Projects
 
 </div>
 
-<div class="stat">
 
-<div class="stat-number">1:1</div>
+<div class="stat reveal">
+
+<div class="stat-number">
+1:1
+</div>
 
 <div class="stat-label">
 Personal Attention
@@ -1794,15 +1461,16 @@ Personal Attention
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PROGRAMS
-===================================================== -->
+========================================================= -->
 
 <section class="programs" id="programs">
 
 <div class="container">
 
-<div class="section-top">
+
+<div class="section-top reveal">
 
 <div>
 
@@ -1829,7 +1497,7 @@ their drawing skills further.
 <div class="program-grid">
 
 
-<div class="program">
+<div class="program reveal">
 
 <div class="program-number">
 01 / FOUNDATION
@@ -1856,7 +1524,7 @@ Ask about this program →
 </div>
 
 
-<div class="program">
+<div class="program reveal">
 
 <div class="program-number">
 02 / DEVELOPMENT
@@ -1883,7 +1551,7 @@ Ask about this program →
 </div>
 
 
-<div class="program">
+<div class="program reveal">
 
 <div class="program-number">
 03 / CREATIVE
@@ -1909,6 +1577,7 @@ Ask about this program →
 
 </div>
 
+
 </div>
 
 </div>
@@ -1916,15 +1585,16 @@ Ask about this program →
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      GALLERY
-===================================================== -->
+========================================================= -->
 
 <section class="gallery" id="gallery">
 
 <div class="container">
 
-<div class="gallery-header">
+
+<div class="gallery-header reveal">
 
 <span class="section-label">
 Student Work
@@ -1953,6 +1623,7 @@ src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=c
 alt="Artwork">
 
 </div>
+
 
 <div class="gallery-item gallery-small">
 
@@ -1988,6 +1659,7 @@ alt="Painting">
 
 </div>
 
+
 <div class="gallery-item gallery-medium">
 
 <img
@@ -1998,6 +1670,7 @@ alt="Artist studio">
 
 </div>
 
+
 </div>
 
 </div>
@@ -2005,15 +1678,16 @@ alt="Artist studio">
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      METHOD
-===================================================== -->
+========================================================= -->
 
 <section class="method" id="method">
 
 <div class="container method-grid">
 
-<div>
+
+<div class="reveal">
 
 <img
 class="method-image"
@@ -2023,7 +1697,7 @@ alt="Drawing class">
 </div>
 
 
-<div>
+<div class="reveal">
 
 <span class="section-label">
 Our Method
@@ -2113,313 +1787,9 @@ that reflects your own imagination.
 </section>
 
 
-<!-- =====================================================
-     PARENT FEEDBACK
-===================================================== -->
-
-<section class="feedback-section" id="feedback">
-
-<div class="container">
-
-<div class="feedback-header">
-
-<span class="section-label">
-Parent Feedback
-</span>
-
-<h2>
-What parents say.
-</h2>
-
-<p>
-Your experience matters to us. Share your feedback
-and help other parents discover Sri Maruthi Kalaikoodam.
-</p>
-
-</div>
-
-
-<div class="feedback-layout">
-
-
-<!-- =================================================
-     FEEDBACK FORM
-================================================= -->
-
-<div class="feedback-form">
-
-<h3>
-Share Your Experience
-</h3>
-
-
-<form id="feedbackForm">
-
-
-<div class="form-group">
-
-<label for="parentName">
-Parent Name
-</label>
-
-<input
-type="text"
-id="parentName"
-placeholder="Enter your name"
-maxlength="50"
-required>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Your Rating
-</label>
-
-<div class="rating">
-
-<input
-type="radio"
-id="star5"
-name="rating"
-value="5"
-required>
-
-<label for="star5">★</label>
-
-
-<input
-type="radio"
-id="star4"
-name="rating"
-value="4">
-
-<label for="star4">★</label>
-
-
-<input
-type="radio"
-id="star3"
-name="rating"
-value="3">
-
-<label for="star3">★</label>
-
-
-<input
-type="radio"
-id="star2"
-name="rating"
-value="2">
-
-<label for="star2">★</label>
-
-
-<input
-type="radio"
-id="star1"
-name="rating"
-value="1">
-
-<label for="star1">★</label>
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="feedbackText">
-Your Feedback
-</label>
-
-<textarea
-id="feedbackText"
-placeholder="Tell us about your experience..."
-maxlength="500"
-required></textarea>
-
-</div>
-
-
-<button
-type="submit"
-class="btn btn-dark submit-feedback">
-
-Submit Feedback →
-
-</button>
-
-
-<div class="feedback-note">
-
-Your feedback will be reviewed before appearing
-publicly on the website.
-
-</div>
-
-</form>
-
-</div>
-
-
-<!-- =================================================
-     FEEDBACK DISPLAY
-================================================= -->
-
-<div class="feedback-display">
-
-
-<div class="feedback-title-row">
-
-<h3>
-Parent Feedback
-</h3>
-
-<button
-class="admin-btn"
-id="adminModeBtn"
-type="button">
-
-Admin
-
-</button>
-
-</div>
-
-
-<!-- =================================================
-     ADMIN LOGIN
-================================================= -->
-
-<div
-class="admin-login"
-id="adminLogin">
-
-<h4>
-Admin Login
-</h4>
-
-<form
-class="admin-login-form"
-id="adminLoginForm">
-
-<input
-type="password"
-id="adminPassword"
-placeholder="Enter admin password"
-required>
-
-<button type="submit">
-Login
-</button>
-
-</form>
-
-</div>
-
-
-<!-- =================================================
-     ADMIN PANEL
-================================================= -->
-
-<div
-class="admin-panel"
-id="adminPanel">
-
-
-<div class="admin-top">
-
-<strong>
-Feedback Management
-</strong>
-
-<button
-class="logout-btn"
-id="logoutBtn">
-
-Logout
-
-</button>
-
-</div>
-
-
-<div class="admin-stats">
-
-<div class="admin-stat">
-
-<strong id="totalCount">
-0
-</strong>
-
-<span>
-Total
-</span>
-
-</div>
-
-
-<div class="admin-stat">
-
-<strong id="pendingCount">
-0
-</strong>
-
-<span>
-Pending
-</span>
-
-</div>
-
-
-<div class="admin-stat">
-
-<strong id="approvedCount">
-0
-</strong>
-
-<span>
-Approved
-</span>
-
-</div>
-
-</div>
-
-
-<div
-class="admin-feedback-list"
-id="adminFeedbackList">
-
-</div>
-
-</div>
-
-
-<!-- PUBLIC FEEDBACK -->
-
-<div
-class="feedback-list"
-id="feedbackList">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FEATURE QUOTE
-===================================================== -->
+<!-- =========================================================
+     TESTIMONIAL
+========================================================= -->
 
 <section class="quote-section">
 
@@ -2438,7 +1808,7 @@ she genuinely loves.
 </blockquote>
 
 <div class="quote-author">
-— Parent of a Student
+— Parent of a student
 </div>
 
 </div>
@@ -2446,26 +1816,30 @@ she genuinely loves.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      CTA
-===================================================== -->
+========================================================= -->
 
 <section class="cta">
 
-<div class="container">
+<div class="container reveal">
 
 <span class="section-label">
 Admissions Open
 </span>
 
 <h2>
+
 Your first drawing<br>
 starts with <em>one line.</em>
+
 </h2>
 
 <p>
+
 Message us on WhatsApp to know about
 available batches, timings, fees and enrollment.
+
 </p>
 
 <a
@@ -2482,9 +1856,9 @@ Start Your Journey →
 </section>
 
 
-<!-- =====================================================
-     CONTACT
-===================================================== -->
+<!-- =========================================================
+     CONTACT STRIP
+========================================================= -->
 
 <section class="contact-strip">
 
@@ -2497,11 +1871,10 @@ Ready to create?
 </strong>
 
 <span>
-Talk to us about your next class.
+&nbsp; Talk to us about your next class.
 </span>
 
 </div>
-
 
 <a
 class="contact-btn"
@@ -2516,14 +1889,17 @@ WhatsApp Us →
 
 </section>
 
+</main>
 
-<!-- =====================================================
+
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
 <div class="container">
+
 
 <div class="footer-grid">
 
@@ -2553,11 +1929,21 @@ Explore
 
 <div class="footer-links">
 
-<a href="#about">About</a>
-<a href="#programs">Programs</a>
-<a href="#gallery">Gallery</a>
-<a href="#method">Method</a>
-<a href="#feedback">Parent Feedback</a>
+<a href="#about">
+About
+</a>
+
+<a href="#programs">
+Programs
+</a>
+
+<a href="#gallery">
+Gallery
+</a>
+
+<a href="#method">
+Method
+</a>
 
 </div>
 
@@ -2581,16 +1967,19 @@ WhatsApp: +91 90806 57850
 </a>
 
 <a href="tel:+919080657850">
+
 +91 90806 57850
+
 </a>
 
 <span>
-Your City, India
+Hosur, Tamilnadu, India
 </span>
 
 </div>
 
 </div>
+
 
 </div>
 
@@ -2607,14 +1996,15 @@ Drawing • Creativity • Expression
 
 </div>
 
+
 </div>
 
 </footer>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FLOATING WHATSAPP
-===================================================== -->
+========================================================= -->
 
 <a
 class="whatsapp"
@@ -2641,18 +2031,17 @@ d="M8 9.5c.3 2 2.5 4.2 4.5 4.5">
 </a>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-===================================================== -->
+========================================================= -->
 
 <script>
 
+/* -------------------------
+   PRELOADER
+------------------------- */
 
-/* =====================================================
-   LOADER
-===================================================== */
-
-window.addEventListener("load",function(){
+window.addEventListener("load", function(){
 
     setTimeout(function(){
 
@@ -2666,31 +2055,31 @@ window.addEventListener("load",function(){
 });
 
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* -------------------------
+   NAVIGATION SCROLL
+------------------------- */
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function(){
 
-    const navbar =
+    const nav =
     document.getElementById("navbar");
 
     if(window.scrollY > 50){
 
-        navbar.classList.add("scrolled");
+        nav.classList.add("scrolled");
 
     }else{
 
-        navbar.classList.remove("scrolled");
+        nav.classList.remove("scrolled");
 
     }
 
 });
 
 
-/* =====================================================
+/* -------------------------
    MOBILE MENU
-===================================================== */
+------------------------- */
 
 const menuBtn =
 document.getElementById("menuBtn");
@@ -2698,18 +2087,19 @@ document.getElementById("menuBtn");
 const mobileMenu =
 document.getElementById("mobileMenu");
 
-menuBtn.addEventListener("click",function(){
+menuBtn.addEventListener("click", function(){
 
     mobileMenu.classList.toggle("active");
 
 });
 
 
-document
-.querySelectorAll(".mobile-menu a")
+/* Close mobile menu */
+
+document.querySelectorAll(".mobile-menu a")
 .forEach(function(link){
 
-    link.addEventListener("click",function(){
+    link.addEventListener("click", function(){
 
         mobileMenu.classList.remove("active");
 
@@ -2718,751 +2108,47 @@ document
 });
 
 
-/* =====================================================
-   FEEDBACK VARIABLES
-===================================================== */
+/* -------------------------
+   SCROLL REVEAL
+------------------------- */
 
-const feedbackForm =
-document.getElementById("feedbackForm");
+const revealElements =
+document.querySelectorAll(".reveal");
 
-const feedbackList =
-document.getElementById("feedbackList");
+const revealObserver =
+new IntersectionObserver(
 
-const adminModeBtn =
-document.getElementById("adminModeBtn");
+function(entries){
 
-const adminLogin =
-document.getElementById("adminLogin");
+    entries.forEach(function(entry){
 
-const adminLoginForm =
-document.getElementById("adminLoginForm");
+        if(entry.isIntersecting){
 
-const adminPanel =
-document.getElementById("adminPanel");
+            entry.target.classList.add("active");
 
-const adminFeedbackList =
-document.getElementById("adminFeedbackList");
-
-const logoutBtn =
-document.getElementById("logoutBtn");
-
-
-/* =====================================================
-   ADMIN PASSWORD
-===================================================== */
-
-/*
-   CHANGE THIS PASSWORD
-*/
-
-const ADMIN_PASSWORD = "1234";
-
-
-/* =====================================================
-   DEFAULT FEEDBACK
-===================================================== */
-
-const defaultFeedback = [
-
-    {
-        id:1,
-        name:"Parent of a Student",
-        rating:5,
-        text:"My child started with simple sketches. Today, drawing has become something she genuinely loves.",
-        status:"approved"
-    }
-
-];
-
-
-/* =====================================================
-   GET FEEDBACK
-===================================================== */
-
-function getFeedback(){
-
-    const saved =
-    localStorage.getItem(
-        "sriMaruthiFeedback"
-    );
-
-
-    if(saved){
-
-        try{
-
-            return JSON.parse(saved);
-
-        }catch(error){
-
-            return defaultFeedback;
+            revealObserver.unobserve(entry.target);
 
         }
 
-    }
-
-
-    return defaultFeedback;
-
-}
-
-
-/* =====================================================
-   SAVE FEEDBACK
-===================================================== */
-
-function saveFeedback(data){
-
-    localStorage.setItem(
-        "sriMaruthiFeedback",
-        JSON.stringify(data)
-    );
-
-}
-
-
-/* =====================================================
-   STARS
-===================================================== */
-
-function createStars(rating){
-
-    let stars = "";
-
-    for(
-        let i = 1;
-        i <= 5;
-        i++
-    ){
-
-        if(i <= rating){
-
-            stars += "★";
-
-        }else{
-
-            stars += "☆";
-
-        }
-
-    }
-
-    return stars;
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(text){
-
-    const div =
-    document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-
-}
-
-
-/* =====================================================
-   DISPLAY APPROVED FEEDBACK
-===================================================== */
-
-function displayPublicFeedback(){
-
-    const feedback =
-    getFeedback();
-
-
-    const approved =
-    feedback.filter(function(item){
-
-        return item.status === "approved";
-
     });
 
+},
 
-    feedbackList.innerHTML = "";
-
-
-    if(approved.length === 0){
-
-        feedbackList.innerHTML = `
-
-        <div class="feedback-empty">
-
-        No parent feedback yet.<br>
-
-        Be the first to share your experience.
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    approved
-    .slice()
-    .reverse()
-    .forEach(function(item){
-
-        const card =
-        document.createElement("div");
-
-        card.className =
-        "feedback-card";
-
-
-        card.innerHTML = `
-
-        <div class="feedback-stars">
-
-        ${createStars(item.rating)}
-
-        </div>
-
-
-        <div class="feedback-text">
-
-        “${escapeHTML(item.text)}”
-
-        </div>
-
-
-        <div class="feedback-name">
-
-        — ${escapeHTML(item.name)}
-
-        </div>
-
-        `;
-
-
-        feedbackList.appendChild(card);
-
-    });
-
+{
+    threshold:.12
 }
 
+);
 
-/* =====================================================
-   ADMIN LOGIN BUTTON
-===================================================== */
 
-adminModeBtn.addEventListener(
-"click",
-function(){
+revealElements.forEach(function(element){
 
-    adminLogin.classList.toggle("active");
+    revealObserver.observe(element);
 
 });
-
-
-/* =====================================================
-   ADMIN LOGIN
-===================================================== */
-
-adminLoginForm.addEventListener(
-"submit",
-function(event){
-
-    event.preventDefault();
-
-
-    const password =
-    document
-    .getElementById("adminPassword")
-    .value;
-
-
-    if(password === ADMIN_PASSWORD){
-
-        adminLogin.classList.remove(
-            "active"
-        );
-
-        adminPanel.classList.add(
-            "active"
-        );
-
-        adminModeBtn.innerText =
-        "Admin Mode ON";
-
-
-        document
-        .getElementById("adminPassword")
-        .value = "";
-
-
-        displayAdminFeedback();
-
-    }else{
-
-        alert(
-            "Incorrect admin password."
-        );
-
-    }
-
-});
-
-
-/* =====================================================
-   ADMIN LOGOUT
-===================================================== */
-
-logoutBtn.addEventListener(
-"click",
-function(){
-
-    adminPanel.classList.remove(
-        "active"
-    );
-
-    adminModeBtn.innerText =
-    "Admin";
-
-});
-
-
-/* =====================================================
-   ADMIN DISPLAY
-===================================================== */
-
-function displayAdminFeedback(){
-
-    const feedback =
-    getFeedback();
-
-
-    const total =
-    feedback.length;
-
-
-    const pending =
-    feedback.filter(function(item){
-
-        return item.status === "pending";
-
-    }).length;
-
-
-    const approved =
-    feedback.filter(function(item){
-
-        return item.status === "approved";
-
-    }).length;
-
-
-    document
-    .getElementById("totalCount")
-    .innerText = total;
-
-
-    document
-    .getElementById("pendingCount")
-    .innerText = pending;
-
-
-    document
-    .getElementById("approvedCount")
-    .innerText = approved;
-
-
-    adminFeedbackList.innerHTML = "";
-
-
-    if(feedback.length === 0){
-
-        adminFeedbackList.innerHTML = `
-
-        <div class="admin-empty">
-
-        No feedback available.
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    feedback
-    .slice()
-    .reverse()
-    .forEach(function(item){
-
-        const card =
-        document.createElement("div");
-
-        card.className =
-        "admin-feedback-card";
-
-
-        let actionButtons = "";
-
-
-        if(item.status === "pending"){
-
-            actionButtons += `
-
-            <button
-                class="approve-btn"
-                onclick="approveFeedback(${item.id})">
-
-                Approve
-
-            </button>
-
-            `;
-
-        }
-
-
-        if(item.status === "approved"){
-
-            actionButtons += `
-
-            <button
-                class="reject-btn"
-                onclick="rejectFeedback(${item.id})">
-
-                Unapprove
-
-            </button>
-
-            `;
-
-        }
-
-
-        actionButtons += `
-
-        <button
-            class="delete-btn"
-            onclick="deleteFeedback(${item.id})">
-
-            Delete
-
-        </button>
-
-        `;
-
-
-        card.innerHTML = `
-
-        <div class="admin-feedback-info">
-
-            <strong>
-
-            ${escapeHTML(item.name)}
-
-            </strong>
-
-
-            <div class="admin-rating">
-
-            ${createStars(item.rating)}
-
-            </div>
-
-
-            <p>
-
-            ${escapeHTML(item.text)}
-
-            </p>
-
-
-            <span class="status ${item.status}">
-
-            ${item.status}
-
-            </span>
-
-        </div>
-
-
-        <div class="admin-actions">
-
-        ${actionButtons}
-
-        </div>
-
-        `;
-
-
-        adminFeedbackList.appendChild(card);
-
-    });
-
-}
-
-
-/* =====================================================
-   APPROVE FEEDBACK
-===================================================== */
-
-function approveFeedback(id){
-
-    let feedback =
-    getFeedback();
-
-
-    feedback =
-    feedback.map(function(item){
-
-        if(item.id === id){
-
-            item.status = "approved";
-
-        }
-
-        return item;
-
-    });
-
-
-    saveFeedback(feedback);
-
-
-    displayAdminFeedback();
-
-    displayPublicFeedback();
-
-
-    alert(
-        "Feedback approved successfully."
-    );
-
-}
-
-
-/* =====================================================
-   REJECT / UNAPPROVE
-===================================================== */
-
-function rejectFeedback(id){
-
-    let feedback =
-    getFeedback();
-
-
-    feedback =
-    feedback.map(function(item){
-
-        if(item.id === id){
-
-            item.status = "pending";
-
-        }
-
-        return item;
-
-    });
-
-
-    saveFeedback(feedback);
-
-
-    displayAdminFeedback();
-
-    displayPublicFeedback();
-
-
-    alert(
-        "Feedback moved back to Pending."
-    );
-
-}
-
-
-/* =====================================================
-   DELETE FEEDBACK
-===================================================== */
-
-function deleteFeedback(id){
-
-    const confirmDelete =
-    confirm(
-        "Are you sure you want to permanently delete this feedback?"
-    );
-
-
-    if(!confirmDelete){
-
-        return;
-
-    }
-
-
-    let feedback =
-    getFeedback();
-
-
-    feedback =
-    feedback.filter(function(item){
-
-        return item.id !== id;
-
-    });
-
-
-    saveFeedback(feedback);
-
-
-    displayAdminFeedback();
-
-    displayPublicFeedback();
-
-
-    alert(
-        "Feedback deleted successfully."
-    );
-
-}
-
-
-/* =====================================================
-   PARENT SUBMIT FEEDBACK
-===================================================== */
-
-feedbackForm.addEventListener(
-"submit",
-function(event){
-
-    event.preventDefault();
-
-
-    const name =
-    document
-    .getElementById("parentName")
-    .value
-    .trim();
-
-
-    const feedback =
-    document
-    .getElementById("feedbackText")
-    .value
-    .trim();
-
-
-    const rating =
-    document.querySelector(
-        'input[name="rating"]:checked'
-    );
-
-
-    if(!name){
-
-        alert(
-            "Please enter your name."
-        );
-
-        return;
-
-    }
-
-
-    if(!rating){
-
-        alert(
-            "Please select your rating."
-        );
-
-        return;
-
-    }
-
-
-    if(!feedback){
-
-        alert(
-            "Please enter your feedback."
-        );
-
-        return;
-
-    }
-
-
-    const newFeedback = {
-
-        id:Date.now(),
-
-        name:name,
-
-        rating:parseInt(
-            rating.value
-        ),
-
-        text:feedback,
-
-        status:"pending"
-
-    };
-
-
-    const currentFeedback =
-    getFeedback();
-
-
-    currentFeedback.push(
-        newFeedback
-    );
-
-
-    saveFeedback(
-        currentFeedback
-    );
-
-
-    feedbackForm.reset();
-
-
-    alert(
-        "Thank you! Your feedback has been submitted and is waiting for approval."
-    );
-
-
-    /*
-       If admin is already logged in,
-       refresh admin panel.
-    */
-
-    if(
-        adminPanel.classList.contains(
-            "active"
-        )
-    ){
-
-        displayAdminFeedback();
-
-    }
-
-});
-
-
-/* =====================================================
-   INITIAL DISPLAY
-===================================================== */
-
-displayPublicFeedback();
 
 
 </script>
-
 
 </body>
 </html>
