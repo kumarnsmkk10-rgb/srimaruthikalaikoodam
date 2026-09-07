@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Artiva Studio | Drawing & Craft Academy</title>
+
+<meta name="description"
+content="Artiva Studio - Premium drawing, painting and craft classes for children, students and beginners.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#faf9f7;
+    color:#171717;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root{
+    --dark:#171717;
+    --cream:#faf9f7;
+    --white:#ffffff;
+    --orange:#ff6b35;
+    --yellow:#ffc857;
+    --purple:#725cff;
+    --pink:#ff4f81;
+    --green:#25a18e;
+    --gray:#707070;
+    --light:#f1eee9;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    transition:.3s;
+}
+
+header.scrolled{
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(18px);
+    box-shadow:0 5px 30px rgba(0,0,0,.08);
+}
+
+.navbar{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:21px;
+    font-weight:700;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    display:grid;
+    place-items:center;
+    background:var(--dark);
+    color:white;
+    font-size:21px;
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+.nav-btn{
+    padding:12px 21px;
+    background:var(--dark);
+    color:white !important;
+    border-radius:30px;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    padding-top:130px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 15px;
+    border-radius:30px;
+    background:#fff0e9;
+    color:var(--orange);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+.badge span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--orange);
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(50px,6vw,78px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:24px;
+}
+
+.hero h1 em{
+    color:var(--orange);
+    font-style:normal;
+}
+
+.hero-description{
+    font-size:18px;
+    line-height:1.7;
+    color:var(--gray);
+    max-width:570px;
+    margin-bottom:34px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    padding:16px 25px;
+    border-radius:35px;
+    background:var(--dark);
+    color:white;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(0,0,0,.16);
+}
+
+.secondary-btn{
+    padding:16px 25px;
+    border:1px solid #ddd;
+    border-radius:35px;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    background:white;
+}
+
+.secondary-btn:hover{
+    border-color:var(--dark);
+}
+
+/* HERO ART */
+
+.hero-art{
+    position:relative;
+    min-height:560px;
+}
+
+.art-main{
+    position:absolute;
+    right:30px;
+    top:40px;
+    width:410px;
+    height:500px;
+    border-radius:210px 210px 35px 35px;
+    background:
+    linear-gradient(135deg,#ffcf70,#ff765d);
+    overflow:hidden;
+    transform:rotate(4deg);
+    box-shadow:0 35px 80px rgba(0,0,0,.15);
+}
+
+.art-main img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    mix-blend-mode:multiply;
+}
+
+.paint-circle{
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:var(--purple);
+    top:10px;
+    right:30px;
+    opacity:.9;
+}
+
+.paint-circle.two{
+    width:85px;
+    height:85px;
+    background:var(--pink);
+    bottom:50px;
+    left:30px;
+}
+
+.floating-card{
+    position:absolute;
+    z-index:3;
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,.13);
+}
+
+.students-card{
+    left:0;
+    top:110px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatars{
+    display:flex;
+}
+
+.avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:3px solid white;
+    margin-left:-8px;
+    background:#ddd;
+}
+
+.avatar:first-child{
+    margin-left:0;
+}
+
+.rating-card{
+    right:0;
+    bottom:100px;
+}
+
+.stars{
+    color:#ffb400;
+    font-size:15px;
+    letter-spacing:2px;
+}
+
+.card-number{
+    font-size:23px;
+    font-weight:700;
+    margin-top:5px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    padding:30px 0 70px;
+}
+
+.stats-box{
+    background:var(--dark);
+    color:white;
+    border-radius:25px;
+    padding:35px 45px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h3{
+    font-size:35px;
+}
+
+.stat p{
+    color:#aaa;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    padding:110px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 55px;
+}
+
+.eyebrow{
+    color:var(--orange);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:13px;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    line-height:1.1;
+    margin-bottom:16px;
+}
+
+.section-heading p{
+    color:var(--gray);
+    line-height:1.7;
+}
+
+/* =========================================================
+   COURSES
+========================================================= */
+
+.courses{
+    background:white;
+}
+
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.course{
+    border:1px solid #eee;
+    border-radius:24px;
+    overflow:hidden;
+    background:white;
+    transition:.4s;
+}
+
+.course:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.1);
+}
+
+.course-img{
+    height:230px;
+    overflow:hidden;
+    position:relative;
+}
+
+.course-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.course:hover img{
+    transform:scale(1.08);
+}
+
+.course-tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:white;
+    font-size:11px;
+    font-weight:800;
+}
+
+.course-body{
+    padding:25px;
+}
+
+.course-body h3{
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.course-body p{
+    color:var(--gray);
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.course-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.price{
+    font-size:21px;
+    font-weight:800;
+}
+
+.learn{
+    color:var(--orange);
+    font-weight:700;
+    font-size:14px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-images{
+    position:relative;
+    min-height:520px;
+}
+
+.about-img-one{
+    width:360px;
+    height:430px;
+    border-radius:180px 180px 25px 25px;
+    overflow:hidden;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.about-img-two{
+    width:220px;
+    height:270px;
+    border-radius:25px;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    bottom:0;
+    border:12px solid var(--cream);
+}
+
+.about-images img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.about-content h2{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    line-height:1.1;
+    margin-bottom:22px;
+}
+
+.about-content>p{
+    color:var(--gray);
+    line-height:1.8;
+    margin-bottom:28px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-bottom:32px;
+}
+
+.feature{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.feature-icon{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:#fff0e9;
+    display:grid;
+    place-items:center;
+}
+
+.feature h4{
+    margin-bottom:4px;
+}
+
+.feature p{
+    font-size:12px;
+    color:var(--gray);
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects{
+    background:#171717;
+    color:white;
+}
+
+.projects .section-heading p{
+    color:#aaa;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.project{
+    height:330px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+}
+
+.project img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.project:hover img{
+    transform:scale(1.08);
+}
+
+.project-overlay{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:25px;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.project-overlay h3{
+    margin-bottom:5px;
+}
+
+.project-overlay p{
+    color:#ddd;
+    font-size:12px;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process{
+    text-align:center;
+    padding:30px 20px;
+}
+
+.process-number{
+    width:60px;
+    height:60px;
+    margin:auto auto 20px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--dark);
+    color:white;
+    font-weight:800;
+}
+
+.process h3{
+    margin-bottom:10px;
+}
+
+.process p{
+    color:var(--gray);
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials{
+    background:#f2eee8;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.testimonial{
+    background:white;
+    padding:30px;
+    border-radius:22px;
+}
+
+.quote{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.testimonial p{
+    color:#555;
+    line-height:1.7;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.person-img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.person h4{
+    font-size:14px;
+}
+
+.person small{
+    color:#888;
+}
+
+/* =========================================================
+   PRICING
+========================================================= */
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.plan{
+    border:1px solid #e5e5e5;
+    border-radius:24px;
+    padding:35px;
+    position:relative;
+}
+
+.plan.featured{
+    background:var(--dark);
+    color:white;
+    transform:scale(1.04);
+}
+
+.popular{
+    position:absolute;
+    top:18px;
+    right:18px;
+    padding:7px 11px;
+    border-radius:20px;
+    background:var(--orange);
+    color:white;
+    font-size:10px;
+    font-weight:800;
+}
+
+.plan h3{
+    margin-bottom:10px;
+}
+
+.plan-description{
+    color:#888;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.featured .plan-description{
+    color:#aaa;
+}
+
+.plan-price{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.plan-price span{
+    font-size:13px;
+    font-weight:400;
+    color:#888;
+}
+
+.plan ul{
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.plan li{
+    padding:9px 0;
+    font-size:14px;
+}
+
+.plan li::before{
+    content:"✓";
+    margin-right:10px;
+    color:var(--green);
+    font-weight:800;
+}
+
+.plan-btn{
+    display:block;
+    text-align:center;
+    padding:14px;
+    border-radius:30px;
+    border:1px solid #ddd;
+    font-weight:700;
+}
+
+.featured .plan-btn{
+    background:white;
+    color:var(--dark);
+    border-color:white;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    max-width:800px;
+    margin:auto;
+}
+
+.faq-item{
+    border-bottom:1px solid #ddd;
+}
+
+.faq-question{
+    width:100%;
+    padding:22px 0;
+    background:none;
+    border:0;
+    display:flex;
+    justify-content:space-between;
+    text-align:left;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:.4s;
+    color:var(--gray);
+    line-height:1.7;
+    font-size:14px;
+}
+
+.faq-item.active .faq-answer{
+    max-height:150px;
+    padding-bottom:20px;
+}
+
+.faq-item.active .plus{
+    transform:rotate(45deg);
+}
+
+.plus{
+    font-size:25px;
+    transition:.3s;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+    background:var(--dark);
+    color:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+}
+
+.contact h2{
+    font-family:"Playfair Display",serif;
+    font-size:52px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.contact-text{
+    color:#aaa;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.contact-details{
+    display:grid;
+    gap:15px;
+}
+
+.contact-detail{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.contact-icon{
+    width:45px;
+    height:45px;
+    background:#292929;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+}
+
+.form{
+    background:white;
+    color:var(--dark);
+    padding:35px;
+    border-radius:25px;
+}
+
+.form h3{
+    margin-bottom:25px;
+    font-size:24px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:11px;
+    padding:13px;
+    outline:none;
+}
+
+.form-group textarea{
+    height:100px;
+    resize:none;
+}
+
+.submit-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:30px;
+    background:var(--orange);
+    color:white;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#111;
+    color:white;
+    padding:60px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:50px;
+}
+
+.footer-brand p{
+    color:#888;
+    max-width:320px;
+    line-height:1.7;
+    margin-top:15px;
+}
+
+.footer-col h4{
+    margin-bottom:18px;
+}
+
+.footer-col a{
+    display:block;
+    color:#888;
+    font-size:13px;
+    margin-bottom:11px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.copyright{
+    border-top:1px solid #292929;
+    padding-top:22px;
+    color:#666;
+    font-size:12px;
+    text-align:center;
+}
+
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:57px;
+    height:57px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    z-index:999;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+        top:82px;
+        left:0;
+        width:100%;
+        background:white;
+        display:none;
+        flex-direction:column;
+        padding:25px;
+        box-shadow:0 20px 30px rgba(0,0,0,.08);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero-art{
+        min-height:500px;
+    }
+
+    .course-grid,
+    .testimonial-grid,
+    .pricing-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats-box{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero-art{
+        transform:scale(.85);
+        transform-origin:center;
+        margin-top:-40px;
+    }
+
+    .art-main{
+        right:20px;
+    }
+
+    .section{
+        padding:80px 0;
+    }
+
+    .section-heading h2,
+    .about-content h2{
+        font-size:38px;
+    }
+
+    .course-grid,
+    .testimonial-grid,
+    .pricing-grid,
+    .project-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .plan.featured{
+        transform:none;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats-box{
+        grid-template-columns:1fr 1fr;
+        padding:25px 15px;
+    }
+
+    .stat h3{
+        font-size:27px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =======================================================
+HEADER
+======================================================= -->
+
+<header id="header">
+
+<div class="container navbar">
+
+<a href="#" class="logo">
+<div class="logo-icon">✦</div>
+Artiva Studio
+</a>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+<a href="#courses">Classes</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#pricing">Plans</a>
+<a href="#contact" class="nav-btn">Join Class →</a>
+
+</nav>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+</div>
+
+</header>
+
+
+<!-- =======================================================
+HERO
+======================================================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div class="hero-content reveal">
+
+<div class="badge">
+<span></span>
+Creative Learning Studio
+</div>
+
+<h1>
+Turn imagination<br>
+into <em>art.</em>
+</h1>
+
+<p class="hero-description">
+Premium drawing, painting and craft classes designed to help
+children and beginners discover their creativity, build confidence
+and create something they are proud of.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#contact" class="primary-btn">
+Start Creating →
+</a>
+
+<a href="#courses" class="secondary-btn">
+Explore Classes
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-art reveal">
+
+<div class="paint-circle"></div>
+<div class="paint-circle two"></div>
+
+<div class="art-main">
+
+<img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85">
+
+</div>
+
+<div class="floating-card students-card">
+
+<div class="avatars">
+
+<div class="avatar"></div>
+<div class="avatar"></div>
+<div class="avatar"></div>
+
+</div>
+
+<div>
+<strong>500+</strong>
+<br>
+<small>Happy Students</small>
+</div>
+
+</div>
+
+
+<div class="floating-card rating-card">
+
+<div class="stars">★★★★★</div>
+
+<div class="card-number">4.9/5</div>
+
+<small>Student Rating</small>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+STATS
+======================================================= -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-box reveal">
+
+<div class="stat">
+<h3>500+</h3>
+<p>Students</p>
+</div>
+
+<div class="stat">
+<h3>15+</h3>
+<p>Creative Courses</p>
+</div>
+
+<div class="stat">
+<h3>8+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h3>4.9</h3>
+<p>Average Rating</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+COURSES
+======================================================= -->
+
+<section class="section courses" id="courses">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">Our Classes</div>
+
+<h2>Learn the art of creating.</h2>
+
+<p>
+From your first pencil stroke to beautiful finished artwork,
+our classes make creativity simple, enjoyable and rewarding.
+</p>
+
+</div>
+
+
+<div class="course-grid">
+
+
+<div class="course reveal">
+
+<div class="course-img">
+
+<span class="course-tag">Popular</span>
+
+<img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=700&q=80">
+
+</div>
+
+<div class="course-body">
+
+<h3>Drawing Fundamentals</h3>
+
+<p>
+Learn shapes, lines, proportions, shading and sketching
+through simple step-by-step lessons.
+</p>
+
+<div class="course-bottom">
+
+<span class="price">₹999</span>
+
+<a href="#contact" class="learn">Learn More →</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="course reveal">
+
+<div class="course-img">
+
+<span class="course-tag">Creative</span>
+
+<img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=700&q=80">
+
+</div>
+
+<div class="course-body">
+
+<h3>Painting Studio</h3>
+
+<p>
+Explore watercolor, acrylic, poster colors and canvas
+painting with creative exercises.
+</p>
+
+<div class="course-bottom">
+
+<span class="price">₹1,299</span>
+
+<a href="#contact" class="learn">Learn More →</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="course reveal">
+
+<div class="course-img">
+
+<span class="course-tag">Kids</span>
+
+<img src="https://images.unsplash.com/photo-1594784055412-9f4e7e5c7c52?auto=format&fit=crop&w=700&q=80">
+
+</div>
+
+<div class="course-body">
+
+<h3>Kids Art & Craft</h3>
+
+<p>
+Fun paper craft, origami, DIY projects and creative
+activities for young artists.
+</p>
+
+<div class="course-bottom">
+
+<span class="price">₹799</span>
+
+<a href="#contact" class="learn">Learn More →</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+ABOUT
+======================================================= -->
+
+<section class="section" id="about">
+
+<div class="container about-grid">
+
+<div class="about-images reveal">
+
+<div class="about-img-one">
+
+<img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=700&q=85">
+
+</div>
+
+<div class="about-img-two">
+
+<img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=85">
+
+</div>
+
+</div>
+
+
+<div class="about-content reveal">
+
+<div class="eyebrow">Why Artiva</div>
+
+<h2>Creativity isn't taught. It's unlocked.</h2>
+
+<p>
+We believe every child has an artist inside them.
+Our teaching approach focuses on exploration rather than
+perfection, helping students enjoy the process of creating.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">🎨</div>
+
+<div>
+<h4>Creative Learning</h4>
+<p>Learn through practical activities.</p>
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">👩‍🎨</div>
+
+<div>
+<h4>Expert Guidance</h4>
+<p>Learn from experienced artists.</p>
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🏆</div>
+
+<div>
+<h4>Build Confidence</h4>
+<p>Showcase your creativity.</p>
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">✨</div>
+
+<div>
+<h4>Fun Environment</h4>
+<p>Enjoy every creative session.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<a href="#contact" class="primary-btn">
+Meet Our Studio →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+PROJECTS
+======================================================= -->
+
+<section class="section projects" id="projects">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">Student Projects</div>
+
+<h2>Ideas become something real.</h2>
+
+<p>
+Explore some of the creative work produced by our students
+during classes, competitions and school exhibitions.
+</p>
+
+</div>
+
+
+<div class="project-grid">
+
+<div class="project reveal">
+
+<img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988a5?auto=format&fit=crop&w=600&q=85">
+
+<div class="project-overlay">
+
+<h3>Nature Art</h3>
+
+<p>Watercolor project</p>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=600&q=85">
+
+<div class="project-overlay">
+
+<h3>Creative Canvas</h3>
+
+<p>Painting project</p>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<img src="https://images.unsplash.com/photo-1594784055412-9f4e7e5c7c52?auto=format&fit=crop&w=600&q=85">
+
+<div class="project-overlay">
+
+<h3>Paper Craft</h3>
+
+<p>DIY project</p>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=600&q=85">
+
+<div class="project-overlay">
+
+<h3>Masterpiece</h3>
+
+<p>Student artwork</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+PROCESS
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">How It Works</div>
+
+<h2>Simple. Creative. Fun.</h2>
+
+</div>
+
+
+<div class="process-grid">
+
+<div class="process reveal">
+
+<div class="process-number">01</div>
+
+<h3>Choose</h3>
+
+<p>Select the class that matches your interest.</p>
+
+</div>
+
+
+<div class="process reveal">
+
+<div class="process-number">02</div>
+
+<h3>Learn</h3>
+
+<p>Follow simple step-by-step guidance.</p>
+
+</div>
+
+
+<div class="process reveal">
+
+<div class="process-number">03</div>
+
+<h3>Create</h3>
+
+<p>Turn your ideas into your own artwork.</p>
+
+</div>
+
+
+<div class="process reveal">
+
+<div class="process-number">04</div>
+
+<h3>Celebrate</h3>
+
+<p>Share your work and build confidence.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+TESTIMONIALS
+======================================================= -->
+
+<section class="section testimonials">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">Testimonials</div>
+
+<h2>Loved by students & parents.</h2>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+
+<div class="testimonial reveal">
+
+<div class="quote">“</div>
+
+<p>
+My daughter looks forward to every class. Her drawing
+skills and confidence have improved so much.
+</p>
+
+<div class="person">
+
+<img class="person-img"
+src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<div>
+
+<h4>Priya S.</h4>
+<small>Parent</small>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="quote">“</div>
+
+<p>
+The teachers make every activity exciting. The craft
+projects are especially creative and easy to follow.
+</p>
+
+<div class="person">
+
+<img class="person-img"
+src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<div>
+
+<h4>Rahul K.</h4>
+<small>Parent</small>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="quote">“</div>
+
+<p>
+I started with basic drawing and now I can confidently
+create my own characters and paintings.
+</p>
+
+<div class="person">
+
+<img class="person-img"
+src="https://randomuser.me/api/portraits/girls/21.jpg">
+
+<div>
+
+<h4>Ananya</h4>
+<small>Student</small>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+PRICING
+======================================================= -->
+
+<section class="section" id="pricing">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">Membership</div>
+
+<h2>Choose your creative journey.</h2>
+
+<p>Flexible plans for every learner.</p>
+
+</div>
+
+
+<div class="pricing-grid">
+
+
+<div class="plan reveal">
+
+<h3>Starter</h3>
+
+<p class="plan-description">
+Perfect for beginners.
+</p>
+
+<div class="plan-price">
+₹799 <span>/ month</span>
+</div>
+
+<ul>
+
+<li>4 Classes / Month</li>
+<li>Drawing Fundamentals</li>
+<li>Basic Materials Guide</li>
+<li>Progress Tracking</li>
+
+</ul>
+
+<a href="#contact" class="plan-btn">
+Get Started
+</a>
+
+</div>
+
+
+<div class="plan featured reveal">
+
+<span class="popular">MOST POPULAR</span>
+
+<h3>Creative</h3>
+
+<p class="plan-description">
+For regular young artists.
+</p>
+
+<div class="plan-price">
+₹1,499 <span>/ month</span>
+</div>
+
+<ul>
+
+<li>8 Classes / Month</li>
+<li>Drawing + Painting</li>
+<li>Craft Projects</li>
+<li>Personal Feedback</li>
+<li>Certificate</li>
+
+</ul>
+
+<a href="#contact" class="plan-btn">
+Join Creative
+</a>
+
+</div>
+
+
+<div class="plan reveal">
+
+<h3>Master</h3>
+
+<p class="plan-description">
+For serious learners.
+</p>
+
+<div class="plan-price">
+₹2,499 <span>/ month</span>
+</div>
+
+<ul>
+
+<li>12 Classes / Month</li>
+<li>All Art Courses</li>
+<li>Advanced Projects</li>
+<li>Competition Support</li>
+<li>Portfolio Development</li>
+
+</ul>
+
+<a href="#contact" class="plan-btn">
+Go Master
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+FAQ
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">FAQ</div>
+
+<h2>Questions? We've got answers.</h2>
+
+</div>
+
+
+<div class="faq">
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+What age group can join?
+
+<span class="plus">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+We welcome children, teenagers and beginners.
+Classes can be selected based on age and skill level.
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Do I need previous drawing experience?
+
+<span class="plus">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+No. Our beginner programs start from the fundamentals
+and gradually build your skills.
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Are materials provided?
+
+<span class="plus">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+We provide a recommended materials list.
+Selected workshops may include materials in the fee.
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Do you provide certificates?
+
+<span class="plus">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Yes. Certificates can be provided for eligible
+courses and completed programs.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+CONTACT
+======================================================= -->
+
+<section class="section contact" id="contact">
+
+<div class="container contact-grid">
+
+<div class="reveal">
+
+<div class="eyebrow">Get In Touch</div>
+
+<h2>Ready to create something amazing?</h2>
+
+<p class="contact-text">
+
+Tell us what you would like to learn and our team will
+help you choose the perfect class.
+
+</p>
+
+
+<div class="contact-details">
+
+<div class="contact-detail">
+
+<div class="contact-icon">📞</div>
+
+<div>
+
+<strong>Call Us</strong>
+
+<br>
+
+<span>+91 98765 43210</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-icon">✉</div>
+
+<div>
+
+<strong>Email</strong>
+
+<br>
+
+<span>hello@artivastudio.com</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-icon">📍</div>
+
+<div>
+
+<strong>Studio</strong>
+
+<br>
+
+<span>Your City, Tamil Nadu</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="form reveal">
+
+<h3>Book a Free Enquiry</h3>
+
+<form id="enquiryForm">
+
+<div class="form-group">
+
+<label>Student Name</label>
+
+<input type="text"
+placeholder="Enter name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Parent / Contact Number</label>
+
+<input type="tel"
+placeholder="+91"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Select Class</label>
+
+<select required>
+
+<option value="">Choose a class</option>
+
+<option>Drawing Fundamentals</option>
+<option>Painting Studio</option>
+<option>Kids Art & Craft</option>
+<option>Advanced Art</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Message</label>
+
+<textarea
+placeholder="Tell us what you are looking for..."></textarea>
+
+</div>
+
+
+<button class="submit-btn" type="submit">
+
+Send Enquiry →
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+FOOTER
+======================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="#" class="logo">
+
+<div class="logo-icon">✦</div>
+
+Artiva Studio
+
+</a>
+
+<p>
+Helping young minds discover the joy of creativity
+through drawing, painting and craft.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Explore</h4>
+
+<a href="#home">Home</a>
+<a href="#courses">Classes</a>
+<a href="#projects">Projects</a>
+<a href="#pricing">Plans</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Academy</h4>
+
+<a href="#about">About Us</a>
+<a href="#">Gallery</a>
+<a href="#">Workshops</a>
+<a href="#">Certificates</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Support</h4>
+
+<a href="#contact">Contact</a>
+<a href="#">FAQ</a>
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Artiva Studio. All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/6383633183"
+class="whatsapp"
+target="_blank"
+aria-label="WhatsApp">
+
+◉
+
+</a>
+
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+
+});
+
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer = new IntersectionObserver(
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.12
+}
+
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+
+    observer.observe(el);
+
+});
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item = button.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(other => {
+
+            if(other !== item){
+
+                other.classList.remove("active");
+
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+document.getElementById("enquiryForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert(
+        "Thank you! Your enquiry has been received. We will contact you shortly."
+    );
+
+    this.reset();
+
+});
+
+
+/* =========================================================
+   COUNTER ANIMATION
+========================================================= */
+
+const counters = document.querySelectorAll(".stat h3");
+
+const counterObserver = new IntersectionObserver(
+
+(entries, observer) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            const element = entry.target;
+
+            const text = element.innerText;
+
+            const number = parseFloat(text);
+
+            const suffix = text.replace(number,"");
+
+            let start = 0;
+
+            const duration = 1200;
+
+            const startTime = performance.now();
+
+            function update(currentTime){
+
+                const progress =
+                Math.min((currentTime-startTime)/duration,1);
+
+                const value =
+                Math.floor(progress*number);
+
+                element.innerText = value + suffix;
+
+                if(progress < 1){
+
+                    requestAnimationFrame(update);
+
+                }
+
+            }
+
+            requestAnimationFrame(update);
+
+            observer.unobserve(element);
+
+        }
+
+    });
+
+},
+{
+    threshold:.5
+});
+
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+</script>
+
+</body>
+</html>
