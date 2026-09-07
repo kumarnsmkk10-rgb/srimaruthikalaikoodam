@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -119,8 +120,13 @@ img{
 }
 
 @keyframes load{
-    from{transform:translateX(-100%)}
-    to{transform:translateX(300%)}
+    from{
+        transform:translateX(-100%)
+    }
+
+    to{
+        transform:translateX(300%)
+    }
 }
 
 
@@ -156,6 +162,7 @@ img{
     font-size:26px;
     font-weight:600;
     letter-spacing:-.7px;
+    cursor:pointer;
 }
 
 .logo span{
@@ -1076,6 +1083,7 @@ footer{
         flex-direction:column;
         gap:10px;
     }
+
 }
 
 
@@ -1162,9 +1170,11 @@ footer{
         right:18px;
         bottom:18px;
     }
+
 }
 
 </style>
+
 </head>
 
 
@@ -1172,7 +1182,7 @@ footer{
 
 
 <!-- =========================================================
-     LOADER
+     PRELOADER
 ========================================================= -->
 
 <div class="loader" id="loader">
@@ -1198,15 +1208,24 @@ footer{
 
 <div class="container nav-inner">
 
-<a href="#" class="logo">
+<a
+href="#"
+class="logo"
+id="homeLogo">
+
 Sri Maruthi Kalaikoodam<span>.</span>
+
 </a>
+
 
 <nav class="nav-links">
 
 <a href="#about">About</a>
+
 <a href="#programs">Programs</a>
+
 <a href="#gallery">Gallery</a>
+
 <a href="#method">Method</a>
 
 <a
@@ -1221,7 +1240,10 @@ Enquire Now
 </nav>
 
 
-<button class="menu-btn" id="menuBtn">
+<button
+class="menu-btn"
+id="menuBtn"
+aria-label="Open menu">
 
 <span></span>
 <span></span>
@@ -1234,13 +1256,18 @@ Enquire Now
 </header>
 
 
-<!-- MOBILE MENU -->
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
 
 <div class="mobile-menu" id="mobileMenu">
 
 <a href="#about">About</a>
+
 <a href="#programs">Programs</a>
+
 <a href="#gallery">Gallery</a>
+
 <a href="#method">Method</a>
 
 <a
@@ -1255,12 +1282,12 @@ Enquire Now →
 
 
 <!-- =========================================================
-     HERO
+     HERO / HOME
 ========================================================= -->
 
 <main>
 
-<section class="hero">
+<section class="hero" id="home">
 
 <div class="container hero-grid">
 
@@ -1295,7 +1322,10 @@ Join a Class →
 
 </a>
 
-<a href="#programs" class="btn btn-outline">
+
+<a
+href="#programs"
+class="btn btn-outline">
 
 Explore Programs
 
@@ -2037,9 +2067,115 @@ d="M8 9.5c.3 2 2.5 4.2 4.5 4.5">
 
 <script>
 
-/* -------------------------
+
+/* =========================================================
+   IMPORTANT:
+   ALWAYS START AT HOME AFTER REFRESH
+========================================================= */
+
+/*
+   Prevent browser from restoring previous scroll position.
+*/
+
+if("scrollRestoration" in history){
+
+    history.scrollRestoration = "manual";
+
+}
+
+
+/*
+   Run immediately before the page finishes loading.
+*/
+
+(function(){
+
+    /*
+       Remove #about, #gallery, #programs etc.
+       from the URL if they exist.
+    */
+
+    if(window.location.hash){
+
+        history.replaceState(
+            null,
+            document.title,
+            window.location.pathname +
+            window.location.search
+        );
+
+    }
+
+    /*
+       Force page to top.
+    */
+
+    window.scrollTo(0,0);
+
+})();
+
+
+/*
+   Run again when page has completely loaded.
+*/
+
+window.addEventListener("load", function(){
+
+    window.scrollTo(0,0);
+
+});
+
+
+/*
+   Prevent browser from restoring the old position
+   when navigating away.
+*/
+
+window.addEventListener("beforeunload", function(){
+
+    window.scrollTo(0,0);
+
+});
+
+
+/* =========================================================
+   LOGO → HOME
+========================================================= */
+
+document
+.getElementById("homeLogo")
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    /*
+       Remove hash from URL.
+    */
+
+    history.replaceState(
+        null,
+        document.title,
+        window.location.pathname +
+        window.location.search
+    );
+
+    /*
+       Smoothly return to Home.
+    */
+
+    window.scrollTo({
+
+        top:0,
+        behavior:"smooth"
+
+    });
+
+});
+
+
+/* =========================================================
    PRELOADER
-------------------------- */
+========================================================= */
 
 window.addEventListener("load", function(){
 
@@ -2055,9 +2191,9 @@ window.addEventListener("load", function(){
 });
 
 
-/* -------------------------
+/* =========================================================
    NAVIGATION SCROLL
-------------------------- */
+========================================================= */
 
 window.addEventListener("scroll", function(){
 
@@ -2077,15 +2213,16 @@ window.addEventListener("scroll", function(){
 });
 
 
-/* -------------------------
+/* =========================================================
    MOBILE MENU
-------------------------- */
+========================================================= */
 
 const menuBtn =
 document.getElementById("menuBtn");
 
 const mobileMenu =
 document.getElementById("mobileMenu");
+
 
 menuBtn.addEventListener("click", function(){
 
@@ -2094,9 +2231,12 @@ menuBtn.addEventListener("click", function(){
 });
 
 
-/* Close mobile menu */
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
 
-document.querySelectorAll(".mobile-menu a")
+document
+.querySelectorAll(".mobile-menu a")
 .forEach(function(link){
 
     link.addEventListener("click", function(){
@@ -2108,12 +2248,13 @@ document.querySelectorAll(".mobile-menu a")
 });
 
 
-/* -------------------------
+/* =========================================================
    SCROLL REVEAL
-------------------------- */
+========================================================= */
 
 const revealElements =
 document.querySelectorAll(".reveal");
+
 
 const revealObserver =
 new IntersectionObserver(
@@ -2149,6 +2290,7 @@ revealElements.forEach(function(element){
 
 
 </script>
+
 
 </body>
 </html>
