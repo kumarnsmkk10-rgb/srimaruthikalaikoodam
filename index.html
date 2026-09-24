@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Drawing Classes in Hosur | Sri Maruthi Kalaikoodam</title>
+<title>Drawing &amp; Fine Arts Levels in Hosur | Sri Maruthi Kalaikoodam</title>
 
 <meta name="description"
 content="Sri Maruthi Kalaikoodam offers drawing, sketching, painting and creative art classes in Hosur. Located at PRFG+PMC, Rayakottah Housing Board, Shanthi Nagar East, Hosur, Tamil Nadu 635109." />
@@ -653,6 +653,162 @@ img{
 }
 
 
+
+/* =========================================================
+   FIVE-LEVEL CURRICULUM
+   ========================================================= */
+
+.level-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+    align-items:stretch;
+}
+.level-card{
+    position:relative;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:30px 24px 28px;
+    min-height:390px;
+    overflow:hidden;
+    transition:.45s ease;
+}
+.level-card:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:linear-gradient(90deg,var(--gold),var(--gold-light));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.45s ease;
+}
+.level-card:hover{
+    transform:translateY(-9px);
+    border-color:#c8b99f;
+    box-shadow:0 28px 65px rgba(0,0,0,.09);
+}
+.level-card:hover:before{transform:scaleX(1);}
+.level-featured{background:#f3eee5;}
+.level-master{background:var(--dark);color:white;border-color:#393632;}
+.level-master .level-title{color:white;}
+.level-master .level-line{background:#514d46;}
+.level-master li{color:#c9c5bd;}
+.level-master .planned-note{color:var(--gold-light);border-color:#514d46;}
+.level-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:48px;
+}
+.level-number{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    color:var(--gold);
+}
+.level-tag{
+    font-size:8px;
+    letter-spacing:1.5px;
+    font-weight:700;
+    color:var(--muted);
+    text-align:right;
+}
+.level-master .level-tag{color:#aaa69e;}
+.level-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:34px;
+    line-height:1;
+    font-weight:500;
+    margin-bottom:9px;
+}
+.level-title{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.5;
+    min-height:38px;
+}
+.level-line{
+    width:42px;
+    height:1px;
+    background:var(--gold);
+    margin:20px 0 18px;
+}
+.level-card ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+.level-card li{
+    position:relative;
+    padding-left:15px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.45;
+}
+.level-card li:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:7px;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:var(--gold);
+}
+.planned-note{
+    display:inline-block;
+    margin-top:22px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+    color:#8c7a59;
+    font-size:10px;
+    line-height:1.5;
+}
+.curriculum-note{
+    margin-top:25px;
+    padding:24px 28px;
+    border:1px solid var(--line);
+    background:rgba(255,253,249,.72);
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+}
+.curriculum-note-mark{
+    width:34px;
+    height:34px;
+    flex:0 0 34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    color:var(--gold);
+}
+.curriculum-note strong{
+    font-family:"Playfair Display",serif;
+    font-size:20px;
+    font-weight:500;
+}
+.curriculum-note p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+    margin-top:5px;
+    max-width:760px;
+}
+@media(max-width:1100px){.level-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:900px){.level-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){
+    .level-grid{grid-template-columns:1fr;}
+    .level-card{min-height:auto;}
+    .level-top{margin-bottom:35px;}
+    .curriculum-note{padding:20px;}
+}
+
 /* =========================================================
    GALLERY
 ========================================================= */
@@ -1293,7 +1449,7 @@ Sri Maruthi Kalaikoodam<span>.</span>
 
 <a href="#about">About</a>
 
-<a href="#programs">Programs</a>
+<a href="#programs">Levels</a>
 
 <a href="#gallery">Gallery</a>
 
@@ -1337,7 +1493,7 @@ aria-label="Open menu">
 
 <a href="#about">About</a>
 
-<a href="#programs">Programs</a>
+<a href="#programs">Levels</a>
 
 <a href="#gallery">Gallery</a>
 
@@ -1417,7 +1573,7 @@ Explore Programs
 
 <img
 class="hero-image"
-src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1100&q=90"
+src="" data-site-image="hero"
 alt="Artist drawing">
 
 <div class="hero-border"></div>
@@ -1571,122 +1727,118 @@ Personal Attention
 ========================================================= -->
 
 <section class="programs" id="programs">
+    <div class="container">
 
-<div class="container">
+        <div class="section-top reveal">
+            <div>
+                <span class="section-label">Learning Journey</span>
+                <h2>Five levels.<br><em style="color:var(--gold);font-style:italic;">One artistic journey.</em></h2>
+            </div>
+            <p>
+                A structured progression from foundational colouring and hand control
+                to fine arts development and advanced artistic discovery.
+            </p>
+        </div>
 
+        <div class="level-grid">
 
-<div class="section-top reveal">
+            <article class="level-card reveal">
+                <div class="level-top">
+                    <span class="level-number">01</span>
+                    <span class="level-tag">FOUNDATION</span>
+                </div>
+                <h3>Level 1</h3>
+                <div class="level-title">Basic Colouring</div>
+                <div class="level-line"></div>
+                <ul>
+                    <li>Colour filling</li>
+                    <li>Hand control</li>
+                    <li>Sketch control</li>
+                </ul>
+            </article>
 
-<div>
+            <article class="level-card reveal">
+                <div class="level-top">
+                    <span class="level-number">02</span>
+                    <span class="level-tag">DEVELOPMENT</span>
+                </div>
+                <h3>Level 2</h3>
+                <div class="level-title">Drawing &amp; Shading</div>
+                <div class="level-line"></div>
+                <ul>
+                    <li>Basic shading</li>
+                    <li>Basic shadow</li>
+                    <li>Fine shading</li>
+                    <li>Fine shadow with live objects</li>
+                    <li>Perspective — views</li>
+                    <li>Vegetables, fruits, birds &amp; animals</li>
+                    <li>Scenarios &amp; still life</li>
+                </ul>
+            </article>
 
-<span class="section-label">
-Programs
-</span>
+            <article class="level-card reveal">
+                <div class="level-top">
+                    <span class="level-number">03</span>
+                    <span class="level-tag">COLOUR &amp; PAINTING</span>
+                </div>
+                <h3>Level 3</h3>
+                <div class="level-title">Water Colour &amp; Poster Colours</div>
+                <div class="level-line"></div>
+                <ul>
+                    <li>Basic brush techniques</li>
+                    <li>Primary colour technique</li>
+                    <li>Colour mixing</li>
+                    <li>Colour merging</li>
+                    <li>Presentation skills</li>
+                </ul>
+            </article>
 
-<h2>
-Choose your<br>
-creative path.
-</h2>
+            <article class="level-card level-featured reveal">
+                <div class="level-top">
+                    <span class="level-number">04</span>
+                    <span class="level-tag">DISCOVERING ARTIST</span>
+                </div>
+                <h3>Level 4</h3>
+                <div class="level-title">Dip-in Painting</div>
+                <div class="level-line"></div>
+                <ul>
+                    <li>Dip-in painting</li>
+                    <li>Discovering Artist pathway</li>
+                    <li>Planned syllabus</li>
+                </ul>
+                <span class="planned-note">Syllabus planned for this level</span>
+            </article>
 
-</div>
+            <article class="level-card level-master reveal">
+                <div class="level-top">
+                    <span class="level-number">05</span>
+                    <span class="level-tag">DISCOVERING MASTER</span>
+                </div>
+                <h3>Level 5</h3>
+                <div class="level-title">Dip in Fine Arts</div>
+                <div class="level-line"></div>
+                <ul>
+                    <li>Dip in Fine Arts</li>
+                    <li>Discovering Master pathway</li>
+                    <li>Planned syllabus</li>
+                </ul>
+                <span class="planned-note">Syllabus planned for this level</span>
+            </article>
 
-<p>
-Structured learning programs for beginners,
-young artists and students who want to take
-their drawing skills further.
-</p>
+        </div>
 
-</div>
+        <div class="curriculum-note reveal">
+            <div class="curriculum-note-mark">✦</div>
+            <div>
+                <strong>Progressive learning structure</strong>
+                <p>
+                    Students progress through colouring, drawing, shading, colour techniques,
+                    painting and fine arts development.
+                </p>
+            </div>
+        </div>
 
-
-<div class="program-grid">
-
-
-<div class="program reveal">
-
-<div class="program-number">
-01 / FOUNDATION
-</div>
-
-<h3>
-Basic Drawing
-</h3>
-
-<p>
-Lines, shapes, proportions, observation,
-shading and the fundamentals every artist needs.
-</p>
-
-<a
-class="program-link"
-target="_blank"
-href="https://wa.me/919080657850?text=Hello%20Sri%20Maruthi%20Kalaikoodam,%20I%20want%20details%20about%20Basic%20Drawing.">
-
-Ask about this program →
-
-</a>
-
-</div>
-
-
-<div class="program reveal">
-
-<div class="program-number">
-02 / DEVELOPMENT
-</div>
-
-<h3>
-Sketching
-</h3>
-
-<p>
-Develop observation skills, perspective,
-composition and confident freehand sketching.
-</p>
-
-<a
-class="program-link"
-target="_blank"
-href="https://wa.me/919080657850?text=Hello%20Sri%20Maruthi%20Kalaikoodam,%20I%20want%20details%20about%20Sketching.">
-
-Ask about this program →
-
-</a>
-
-</div>
-
-
-<div class="program reveal">
-
-<div class="program-number">
-03 / CREATIVE
-</div>
-
-<h3>
-Art & Painting
-</h3>
-
-<p>
-Explore colour, painting techniques,
-creative expression and finished artwork.
-</p>
-
-<a
-class="program-link"
-target="_blank"
-href="https://wa.me/919080657850?text=Hello%20Sri%20Maruthi%20Kalaikoodam,%20I%20want%20details%20about%20Art%20and%20Painting.">
-
-Ask about this program →
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 
@@ -1724,7 +1876,7 @@ Every drawing is a small record of progress.
 <div class="gallery-item gallery-medium">
 
 <img
-src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=900&q=85"
+src="" data-site-image="gallery1"
 alt="Artwork">
 
 </div>
@@ -1733,7 +1885,7 @@ alt="Artwork">
 <div class="gallery-item gallery-small">
 
 <img
-src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85"
+src="" data-site-image="gallery2"
 alt="Drawing">
 
 </div>
@@ -1746,7 +1898,7 @@ alt="Drawing">
 <div class="gallery-item gallery-tall">
 
 <img
-src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=1000&q=85"
+src="" data-site-image="gallery3"
 alt="Art studio">
 
 </div>
@@ -1759,7 +1911,7 @@ alt="Art studio">
 <div class="gallery-item gallery-small">
 
 <img
-src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=85"
+src="" data-site-image="gallery4"
 alt="Painting">
 
 </div>
@@ -1768,7 +1920,7 @@ alt="Painting">
 <div class="gallery-item gallery-medium">
 
 <img
-src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=85"
+src="" data-site-image="gallery5"
 alt="Artist studio">
 
 </div>
@@ -1830,7 +1982,7 @@ alt="Artist studio">
 
 <img
 class="method-image"
-src="https://images.unsplash.com/photo-1594784055411-8d9b7a0b5b0c?auto=format&fit=crop&w=1000&q=85"
+src="" data-site-image="method"
 alt="Drawing class">
 
 </div>
@@ -2175,6 +2327,8 @@ d="M8 9.5c.3 2 2.5 4.2 4.5 4.5">
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
+
+<script src="image-links.js"></script>
 
 <script>
 
